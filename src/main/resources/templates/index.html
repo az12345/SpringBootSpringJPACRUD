@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+<div th:if="${not #lists.isEmpty(actorList)}">
+    <h2>Actor List</h2>
+    <table class="table table-striped">
+        <tr class="active">
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="actor : ${actorList}">
+
+            <td th:text="${actor.actor_id}"></td>
+            <td th:text="${actor.first_name}"></td>
+            <td th:text="${actor.last_name}"></td>
+            <td><a th:href="${'/actor/edit/' + actor.actor_id}">Edit</a> </td>
+            <td><a th:href="${'/actor/delete/' + actor.actor_id}">Delete</a> </td>
+        </tr>
+    </table>
+</div></div>
+        <div class="col-md-6">
+        <div th:if="${not #lists.isEmpty(filmList)}">
+    <h2>Film List</h2>
+    <table class="table table-striped">
+        <tr class="active">
+            <th>Id</th>
+            <th>Title</th>
+            <th>Special features</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="film : ${filmList}">
+            <td th:text="${film.film_id}"></td>
+            <td th:text="${film.title}"></td>
+            <td th:text="${film.special_features}"></td>
+            <td><a th:href="${'/film/edit/' + film.film_id}">Edit</a></td>
+            <td><a th:href="${'/film/delete/' + film.film_id}">Delete</a> </td>
+        </tr>
+    </table>
+        </div>
+    </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

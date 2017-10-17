@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <form class="form-horizontal" action="#" th:action="@{/film/save}" th:object="${film}" method="post">
+        <div class="form-group">
+        <input class="form-control" type="hidden" th:field="*{film_id}"/>
+        <input class="form-control" type="text" th:field="*{title}" placeholder="Title"/>
+        <textarea class="form-control" th:field="*{description}" placeholder="Description"/>
+        <input class="form-control" type="text" th:field="*{length}" placeholder="Lenght"/>
+        <input class="form-control" type="text" th:field="*{special_features}" placeholder="Features"/>
+        <select th:field="*{rows[__${rowStat.index}__].variety}">
+        <option th:each="actor : ${actorList}"
+                th:value="${actor.actor_id}"
+                th:text="${actor.last_name}"></option>
+    </select>
+        <input class="btn btn-default" type="submit" value="Update"/>
+        </div>
+    </form>
+
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
