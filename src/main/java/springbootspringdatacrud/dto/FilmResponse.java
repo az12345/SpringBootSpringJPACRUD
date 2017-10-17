@@ -26,5 +26,5 @@ public class FilmResponse implements Serializable {
     @JsonProperty
     private String special_features;
     @JsonProperty
-    private Set<ActorResponse> actorSet;
+    private List<ActorResponse> actorSet;
 }

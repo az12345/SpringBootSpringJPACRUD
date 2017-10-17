@@ -17,7 +17,7 @@ public class ActorService {
 
     // TODO: interface
     public List<Actor> actorList(){
-        return (List<Actor>) actorRepository.findAll();
+        return actorRepository.findAll();
     }
 
     public Actor getById(int id){

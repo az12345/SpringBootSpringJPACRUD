@@ -4,30 +4,36 @@ import lombok.*;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-@Entity
 @Data
+@Entity
 @NoArgsConstructor
-@ToString
 @Table(name = "film")
 public class Film implements Persistable<Integer>{
     private static final int seialVesionUID = 10051;
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int film_id;
+    private Integer film_id;
+
     @Column
     private String title;
+
     @Column
     private String description;
+
     @Column
     private int length;
+
     @Column
     private String special_features;
+
     @ManyToMany(mappedBy = "filmSet")
-    private Set<Actor> actorSet;
+    private List<Actor> actorSet;
 
     @Override
     public Integer getId() {
@@ -36,6 +42,6 @@ public class Film implements Persistable<Integer>{
 
     @Override
     public boolean isNew() {
-        return Objects.nonNull(seialVesionUID);
+        return Objects.nonNull(film_id);
     }
 }

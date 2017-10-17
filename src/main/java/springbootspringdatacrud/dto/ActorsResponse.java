@@ -11,7 +11,9 @@ import java.util.Set;
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ActorsResponse {
+
     private static final int serialVersionUID = 810220815;
+
     @JsonProperty
-    private Set<ActorResponse> actorSet;
+    private List<ActorResponse> actorSet;
 }

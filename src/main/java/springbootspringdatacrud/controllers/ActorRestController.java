@@ -34,8 +34,10 @@ public class ActorRestController {
     @ResponseBody
     public ResponseEntity getActors() {
         final List<Actor> actorSet = actorService.actorList();
-        ActorsResponse actorResponse = mapper.map(actorSet, ActorsResponse.class);
-        return ResponseEntity.status(HttpStatus.OK).body(actorResponse);
+
+//        final ActorsResponse response = mapper.map(actorSet, ActorsResponse.class);
+
+        return ResponseEntity.status(HttpStatus.OK).body(actorSet);
     }
 
     @GetMapping("/actors/{id}")

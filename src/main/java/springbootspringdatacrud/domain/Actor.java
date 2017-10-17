@@ -1,5 +1,6 @@
 package springbootspringdatacrud.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.data.domain.Persistable;
 
@@ -27,10 +28,11 @@ public class Actor implements Persistable<Integer> {
     @Column
     private String lastName;
 
+    @JsonIgnore
     @ManyToMany
     @JoinTable(name = "actorfilm",
-            joinColumns = {@JoinColumn(name="actor_id")},
-            inverseJoinColumns = {@JoinColumn(name = "film_id")})
+            joinColumns = {@JoinColumn(name="actor_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "film_id", referencedColumnName = "film_id")})
     private Set<Film> filmSet;
 
     @Override
