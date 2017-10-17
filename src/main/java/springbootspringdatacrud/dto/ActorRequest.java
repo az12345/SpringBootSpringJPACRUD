@@ -6,20 +6,21 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import lombok.Data;
 
+import java.io.Serializable;
+import java.util.List;
+
 @Data
-@JsonTypeName(value = "film")
+@JsonTypeName(value = "actor")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME)
-public class FilmDTO {
-    private static final int serialVersionUID = 5745811;
-    @JsonProperty
-    private int film_id;
-    @JsonProperty
-    private String title;
-    @JsonProperty
-    private String description;
-    @JsonProperty
-    private int length;
-    @JsonProperty
-    private String special_features;
+public class ActorRequest implements Serializable {
+
+    private static final int serialVersionUID = 630343885;
+
+    @JsonProperty(value = "firstName")
+    private String firstName;
+
+    @JsonProperty(value = "lastName")
+    private String lastName;
+
 }

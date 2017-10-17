@@ -13,7 +13,8 @@ import java.util.List;
 
 @Configuration
 public class DozerConfig {
-    private static final String PACKAGE_TO_SCAN="springbootspringdatacrud.mapping";
+    private static final String PACKAGE_TO_SCAN = "springbootspringdatacrud.mapping";
+
     @Bean
     public DozerBeanMapper mapper() throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         final DozerBeanMapper mapper = new DozerBeanMapper();
@@ -26,7 +27,7 @@ public class DozerConfig {
         final ClassPathScanningCandidateComponentProvider scanner = new ClassPathScanningCandidateComponentProvider(false);
         scanner.addIncludeFilter(new AssignableTypeFilter(BeanMappingBuilder.class));
         final List<BeanMappingBuilder> customMapping = new ArrayList<>();
-        for(final BeanDefinition bd : scanner.findCandidateComponents(PACKAGE_TO_SCAN)){
+        for (final BeanDefinition bd : scanner.findCandidateComponents(PACKAGE_TO_SCAN)) {
             customMapping.add((BeanMappingBuilder) Class.forName(bd.getBeanClassName()).newInstance());
         }
         return customMapping;

@@ -22,9 +22,10 @@ public class FilmRestController {
     private final DozerBeanMapper dozerBeanMapper;
 
     private final FilmService filmService;
+
     @GetMapping("/films")
     @ResponseBody
-    public ResponseEntity getFilms(){
+    public ResponseEntity getFilms() {
         final List<Film> filmList = filmService.filmList();
         final FilmResponse filmResponse = dozerBeanMapper.map(filmList, FilmResponse.class);
         return ResponseEntity.status(HttpStatus.OK).body(filmResponse);

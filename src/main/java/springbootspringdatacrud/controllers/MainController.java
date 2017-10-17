@@ -13,14 +13,14 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class MainController {
-    @Autowired
-    FilmService filmService;
-    @Autowired
-    ActorService actorService;
+
+    private final FilmService filmService;
+    private final ActorService actorService;
+
     @GetMapping({"", "/"})
-    public String main(Model model){
+    public String main(Model model) {
         List filmList = filmService.filmList();
-        model.addAttribute("filmList",filmList);
+        model.addAttribute("filmList", filmList);
         model.addAttribute("actorList", actorService.actorList());
         return "index";
     }

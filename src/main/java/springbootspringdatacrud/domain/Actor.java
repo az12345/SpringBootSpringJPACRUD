@@ -8,21 +8,25 @@ import java.sql.Timestamp;
 import java.util.Objects;
 import java.util.Set;
 
-@Entity
 @Data
+@Entity
 @NoArgsConstructor
-@ToString
 @Table(name="actor")
 public class Actor implements Persistable<Integer> {
+
     private static final int seialVesionUID = 1001;
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int actor_id;
+    private Integer id;
+
     @Column
-    private String first_name;
+    private String firstName;
+
     @Column
-    private String last_name;
+    private String lastName;
+
     @ManyToMany
     @JoinTable(name = "actorfilm",
             joinColumns = {@JoinColumn(name="actor_id")},
@@ -31,11 +35,11 @@ public class Actor implements Persistable<Integer> {
 
     @Override
     public Integer getId() {
-        return actor_id;
+        return id;
     }
 
     @Override
     public boolean isNew() {
-        return Objects.nonNull(actor_id);
+        return Objects.nonNull(id);
     }
 }
