@@ -13,5 +13,5 @@ import java.util.Set;
 public class FilmsResponse implements Serializable{
     private static final int serialVersionUID = 802200815;
     @JsonProperty
-    private Set<FilmResponse> filmSet;
+    private List <FilmResponse> filmSet;
 }

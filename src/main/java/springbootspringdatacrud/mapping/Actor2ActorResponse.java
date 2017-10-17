@@ -19,7 +19,7 @@ import static org.dozer.loader.api.FieldsMappingOptions.hintB;
 public class Actor2ActorResponse  extends BeanMappingBuilder {
     @Override
     protected void configure() {
-        mapping(Set.class, ActorsResponse.class, TypeMappingOptions.oneWay())
+        mapping(List.class, ActorsResponse.class, TypeMappingOptions.oneWay())
                 .fields(this_(),"actorSet",
                         hintA(Actor.class),
                         hintB(ActorResponse.class));

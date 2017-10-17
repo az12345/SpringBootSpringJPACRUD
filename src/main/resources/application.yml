@@ -1,0 +1,21 @@
+# ===============================
+# [ Server Properties ]
+# ===============================
+server:
+  port: 9090
+
+# ===============================
+# [ Spring Data JPA Properties ]
+# ===============================
+spring:
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/actorfilm
+    username: root
+    password: root
+    name: actorfilm

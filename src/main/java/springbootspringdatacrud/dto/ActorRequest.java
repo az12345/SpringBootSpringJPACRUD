@@ -13,15 +13,14 @@ import java.util.List;
 @JsonTypeName(value = "actor")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME)
-public class ActorDTO implements Serializable {
+public class ActorRequest implements Serializable {
 
     private static final int serialVersionUID = 630343885;
 
-    @JsonProperty
-    private int actor_id;
-    @JsonProperty
-    private String first_name;
-    @JsonProperty
-    private String last_name;
+    @JsonProperty(value = "firstName")
+    private String firstName;
+
+    @JsonProperty(value = "lastName")
+    private String lastName;
 
 }

@@ -14,6 +14,7 @@ import java.util.Set;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class FilmResponse implements Serializable {
     private static final int serialVersionUID = 11;
+
     @JsonProperty
     private int film_id;
     @JsonProperty
@@ -25,5 +26,5 @@ public class FilmResponse implements Serializable {
     @JsonProperty
     private String special_features;
     @JsonProperty
-    private Set<ActorResponse> actorSet;
+    private List<ActorResponse> actorSet;
 }

@@ -14,18 +14,21 @@ import springbootspringdatacrud.services.FilmService;
 public class FilmController {
     @Autowired
     FilmService filmService;
+
     @GetMapping("/film/edit/{id}")
-    public String editFilm(@PathVariable int id, Model model){
-        model.addAttribute("film",filmService.getById(id) );
+    public String editFilm(@PathVariable int id, Model model) {
+        model.addAttribute("film", filmService.getById(id));
         return "editfilm";
     }
+
     @GetMapping("/film/delete/{id}")
-    public String deleteFilm(@PathVariable int id){
+    public String deleteFilm(@PathVariable int id) {
         filmService.delete(id);
         return "redirect:/";
     }
+
     @PostMapping("/film/save")
-    public String saveFilm(@ModelAttribute Film film){
+    public String saveFilm(@ModelAttribute Film film) {
         filmService.saveOrUpdate(film);
         return "redirect:/";
     }
